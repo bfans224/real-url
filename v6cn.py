@@ -17,7 +17,7 @@ class V6CN:
             flvtitle = 'v{}-{}'.format(*result)
             response = requests.get(f'https://rio.6rooms.com/live/?s={uid}').text
             hip = 'https://' + re.search(r'<watchip>(.*\.com).*?</watchip>', response).group(1)
-            real_url = [f'{hip}/{flvtitle}/palylist.m3u8', f'{hip}/httpflv/{flvtitle}']
+            real_url = [f'{hip}/{flvtitle}/palylist.m3u8', f'{hip}/httpflv/{flvtitle}.flv']
         except Exception:
             raise Exception('直播间不存在或未开播')
         return real_url
